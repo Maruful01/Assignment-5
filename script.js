@@ -1,4 +1,4 @@
-
+//search meals by first letter
 document.getElementById ("search-btn").addEventListener ('click', function (){
     function foodCollection (){
         const inputValue = document.getElementById("input").value;
@@ -34,6 +34,7 @@ document.getElementById ("search-btn").addEventListener ('click', function (){
 foodCollection ()
 
 })
+// display details----
 function foodDetails () {
     const inputValue = document.getElementById("input").value;
     document.getElementById ("foods-container").style.display = "none";
