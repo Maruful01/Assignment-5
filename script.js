@@ -1,47 +1,47 @@
 //search meals by first letter
-document.getElementById ("search-btn").addEventListener ('click', function (){
-    function foodCollection (){
-        const inputValue = document.getElementById("input").value;
-
-       fetch('https://www.themealdb.com/api/json/v1/1/search.php?f='+inputValue+'')
-       .then(response => response.json())
-       .catch(err => alert ("Please first search your mil"))
-       .then(data => {   
-
-       displayFood (data);
-    })
-    function displayFood (data){
-        const meal = data.meals[0];
-        console.log (data)
-        console.log (meal.strMeal)
-    
-        const foods = document.getElementById ("foods-container");
+const searchMeal = () => {
+    const searchText = document.getElementById ("input").value;
+// Input value timeOut function_____
+    setTimeout (inputValueTime, 1000)
+    function inputValueTime () {
+      document.getElementById ("input").value = "";
+    }
+// Input value timeOut function_____
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchText}`
+    console.log (url)
+    //load data
+    fetch(url)
+    .then(res => res.json ())
+    .then (data => displayMeal(data.meals))
+}
+//display meal function
+const displayMeal = food => {
+    const foodsContainer = document.getElementById ("foods-container");
+    food.forEach(food => {
+        
         const foodDiv = document.createElement ("div");
         foodDiv.className = "foods";
 
         const foodInfo = `
-        <section onclick = "foodDetails ()">
-        <img  class= "thumb" src="${meal.strMealThumb}" alt="" srcset="">
-        <h1 class "meal-name"> ${meal.strMeal} </h1>
+        <section onclick= "foodDetails ('${food.idMeal}')">
+        <img  class= "thumb" src="${food.strMealThumb}" alt="" srcset="">
+        <h3 class "meal-name"> ${food.strMeal} </h3>
         </section>
         `;
         foodDiv.innerHTML = (foodInfo);
-        foods.appendChild (foodDiv);
+        foodsContainer.appendChild (foodDiv);
+
+    })
 }
-
-
-}  
-foodCollection ()
-
-})
-// display details----
-function foodDetails () {
-    const inputValue = document.getElementById("input").value;
+// display food details function
+const foodDetails = (id) => {
     document.getElementById ("foods-container").style.display = "none";
-    fetch('https://www.themealdb.com/api/json/v1/1/search.php?f='+inputValue+'')
-    .then(response => response.json())
-    .catch(err => alert ("Please first search your mil"))
-    .then(data => {   
+    document.getElementById ("form").style.display = "none";
+      const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+      console.log (url);
+      fetch(url)
+      .then (res => res.json())
+      .then (data => {
 
         const meal = data.meals[0];
         const detailsDiv = document.getElementById ("details-div");
@@ -62,7 +62,5 @@ function foodDetails () {
         `;
         infoDiv.innerHTML = (mealInfo);
         detailsDiv.appendChild (infoDiv);
-        
- })
-
+      })
 }
