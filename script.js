@@ -12,7 +12,7 @@ const searchMeal = () => {
     //load data
     fetch(url)
     .then(res => res.json ())
-    .catch (err => catchError ())
+    .catch (err => catchError (err))
     .then (data => displayMeal(data.meals))
 }
 //display meal function
