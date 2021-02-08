@@ -1,6 +1,6 @@
 .navbar-logo {
 
-    height: 70px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -14,6 +14,8 @@
 .navbar {
 
     height: 130px;
+    width: 80%;
+    margin: 0px auto;
 }
 .nav-links {
 
@@ -29,22 +31,6 @@
     opacity: 60%;
     text-shadow: 1px 1px 5px white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .thumb {
     width: 300px;
     border-top-left-radius: 20px;
@@ -57,6 +43,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
     text-align: center;
+    margin: 20px auto;
 }
 .foods{
          border-radius: 20px;
@@ -101,12 +88,12 @@ h1 {
 
 }
 #input {
-     width: 70%; 
+    width: 70%; 
     padding: 5px;
     background: none;
     outline: none;
     border: none;
-    border: 1px solid olive;
+    background-color: #f3efef;
 
  }
  #search-btn {
@@ -117,8 +104,7 @@ h1 {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: none;
-    border-top: 1px solid olive;
-    border-bottom: 1px solid olive;
+    border: 4px solid tomato;
     width: 100px;
  }
  #search-btn:hover {
@@ -127,7 +113,7 @@ h1 {
  }
  .thumb-2 {
 
-    width: 70%;
+    width: 100%;
     height: 300px;
     border-radius: 20px;
     object-fit: cover;
@@ -137,3 +123,35 @@ h1 {
 
     margin-top: 20px;
  }
+
+.foods1 {
+    width: 50%;
+    margin: 10px auto;
+}
+@media only screen and (max-width: 900px) {
+
+    #foods-container {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+    .foods{
+             border-radius: 20px;
+             box-shadow: 1px 1px 10px gray;
+             background-color: #d3d3d300;
+             width: 300px;
+             height: 400px;
+    }
+
+@media only screen and (max-width: 700px) {
+
+    #foods-container {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        }
+    
+  }
+}
