@@ -12,6 +12,7 @@ const searchMeal = () => {
     //load data
     fetch(url)
     .then(res => res.json ())
+    .catch (err => catchError ())
     .then (data => displayMeal(data.meals))
 }
 //display meal function
@@ -62,5 +63,24 @@ const foodDetails = (id) => {
         `;
         infoDiv.innerHTML = (mealInfo);
         detailsDiv.appendChild (infoDiv);
+        //Hide get error part
+        document.getElementById ("get-error").style.display = "none";
       })
+}
+//Extra part get error
+const catchError = () => {
+
+    const foodsContainer = document.getElementById ("get-error");
+
+        const foodDiv = document.createElement ("div");
+        foodDiv.className = "foods3";
+        const foodInfo = `
+        
+        <h3> You have not entered any valid meal name.</h3>
+        <p> Please enter any valid name or search by first letter </p>
+
+        `;
+        foodDiv.innerHTML = (foodInfo);
+        foodsContainer.appendChild (foodDiv);
+
 }

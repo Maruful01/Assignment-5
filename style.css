@@ -128,6 +128,11 @@ h1 {
     width: 50%;
     margin: 10px auto;
 }
+#get-error {
+
+    color: brown;
+    text-align: center;
+}
 @media only screen and (max-width: 900px) {
 
     #foods-container {
