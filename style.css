@@ -133,7 +133,8 @@ h1 {
     color: brown;
     text-align: center;
 }
-@media only screen and (max-width: 900px) {
+
+@media only screen and (max-width: 1430px) {
 
     #foods-container {
 
